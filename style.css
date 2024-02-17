@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+body {
+  background-color: #2168af; /* Deep blue background */
+  font-family: 'Nunito', sans-serif;
+  color: #2a3f5f; /* Dark blue text for contrast */
+  margin: 0;
+  padding: 20px;
+  background-image: url('lock-pattern.png'); /* Ensure the path to your lock pattern image is correct */
+  background-size: cover; /* Covers the entire page */
+  background-position: center; /* Centers the background image */
+}
+
+.container {
+  background: #e0e0e0; /* Light grey for container background */
+  box-shadow: 0 12px 24px rgba(13, 6, 201, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 40px auto;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.container:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #0928b4, #07297e); /* Gradient updated to dark blue */
+  color: #ffffff; /* White text for better readability */
+}
+
+.bton:link, .bton:visited {
+  background-color: #d1d1d1; /* Updated buttons to a lighter grey */
+  color: #1a237e; /* Dark blue text for buttons */
+}
+
+.bton:hover {
+  background-color: #bdbdbd; /* A slightly darker shade of grey for hover state */
+  color: #0d47a1; /* Slightly lighter blue for hover text */
+}

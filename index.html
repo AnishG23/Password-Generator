@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Inline CSS for demonstration. Move this to your style.css file */
+        body {
+            background-color: #f4f7f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-custom {
+            background-color: #1489b4;
+            color: white;
+        }
+        .btn-custom:hover {
+            background-color: #1489b4;
+        }
+        input[type='number'] {
+            width: auto;
+        }
+        .result-container {
+            margin-top: 20px;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Password Generator</h2>
+        <form id="passwordForm">
+            <div class="form-group">
+                <label for="password-length">Password Length:</label>
+                <input type="number" class="form-control" id="password-length" min="8" max="128" value="12">
+            </div>
+            <button type="submit" class="btn btn-custom btn-block">Generate Password</button>
+        </form>
+        <div class="result-container" id="result-container">
+            <h5>Generated Password:</h5>
+            <input type="text" class="form-control" id="password-display" readonly>
+            <button class="btn btn-custom mt-2" id="copy-button">Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Inline JavaScript for demonstration. Move this to your script.js file
+        document.getElementById('passwordForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const passwordLength = document.getElementById('password-length').value;
+            const passwordDisplay = document.getElementById('password-display');
+            passwordDisplay.value = generatePassword(passwordLength);
+        });
+
+        document.getElementById('copy-button').addEventListener('click', function() {
+            const passwordDisplay = document.getElementById('password-display');
+            passwordDisplay.select();
+            document.execCommand('copy');
+            alert('Password copied to clipboard!');
+        });
+
+        function generatePassword(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                password += characters[randomIndex];
+            }
+            return password;
+        }
+    </script>
+</body>
+</html>
